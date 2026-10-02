@@ -1,0 +1,23 @@
+# Python environments and generated files
+.venv/
+venv/
+env/
+**/.venv/
+**/venv/
+**/env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Notebook and editor-generated files
+.ipynb_checkpoints/
+.vscode/

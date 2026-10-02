@@ -8,7 +8,8 @@ bias=0.0
 
 learning_rate=0.01
 
-epochs=1000000
+epochs=10000
+
 
 for epoch in range(epochs):
 
@@ -23,7 +24,7 @@ for epoch in range(epochs):
     bias = bias - learning_rate * bias_gradient
 
     if epoch % 100 == 0:
-        loss = np.mean(error ** 2)
+        loss = np.mean(error ** 2)  
 
         print(
             "Epoch:", epoch,
