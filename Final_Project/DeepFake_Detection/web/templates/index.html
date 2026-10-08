@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeepFake Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">AI IMAGE ANALYSIS</p>
+      <h1>DeepFake Detection</h1>
+      <p class="subtitle">Upload a clear face image and check whether it appears real or AI-generated.</p>
+      <p class="model">Active model: <strong>{{ model_name }}</strong> · Threshold: {{ "%.2f"|format(threshold) }}</p>
+    </section>
+
+    <section class="card">
+      <form id="upload-form">
+        <label id="drop-zone" class="drop-zone" for="image-input">
+          <span class="upload-icon">↑</span>
+          <strong>Drop an image here</strong>
+          <span>or click to browse · JPG, PNG, WEBP</span>
+          <input id="image-input" name="image" type="file" accept=".jpg,.jpeg,.png,.webp" hidden>
+        </label>
+        <div id="preview-area" class="preview-area hidden">
+          <img id="uploaded-preview" alt="Uploaded preview">
+          <span id="file-name"></span>
+        </div>
+        <button id="analyze-button" type="submit" disabled>Analyze image</button>
+      </form>
+      <div id="status" class="status" role="status"></div>
+    </section>
+
+    <section id="result" class="result-grid hidden">
+      <div class="card image-card">
+        <h2>Model input</h2>
+        <img id="processed-image" alt="Face crop sent to the model">
+        <p id="face-info"></p>
+      </div>
+      <div id="result-card" class="card result-card">
+        <p class="eyebrow">MODEL PREDICTION</p>
+        <h2 id="prediction-label"></h2>
+        <p class="confidence">Confidence: <strong id="confidence"></strong></p>
+        <div class="bar"><span id="confidence-bar"></span></div>
+        <p>Fake probability: <strong id="fake-probability"></strong></p>
+        <p class="small">Model: <span id="result-model"></span></p>
+      </div>
+    </section>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
