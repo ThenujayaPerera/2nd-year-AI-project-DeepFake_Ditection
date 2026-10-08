@@ -1,0 +1,6 @@
+docker build -t deepfake-detection .
+
+docker run -p 8501:8501 deepfake-detection
+  
+
+you can use sample dataset to check how our model response for real and fake images
